@@ -54,7 +54,8 @@
                         <div class="header__form--row clearfix">
                             <label class="widget widget-text widget-regular-label widget-label">Phone</label>
                             <input class="widget widget-input-text header__form--phone" type="number"
-                                placeholder="Phone Number" name="phone" value="">
+                                placeholder="Phone Number" name="phone" value="" onkeydown="javascript: return event.keyCode === 8 ||
+event.keyCode === 46 ? true : !isNaN(Number(event.key))">
                         </div>
                         <div class="send-button-container input-button-container clearfix">
                             <button class="widget widget-input-button send-button" type="submit">Send</button>
@@ -218,7 +219,8 @@
                         </div>
                         <div class="header__form--row clearfix"><label class="footer-image__label">Phone</label><input
                                 class="footer-image__input footer-image__input--phone" type="number" placeholder="PHONE*"
-                                name="phone" value="">
+                                name="phone" value="" onkeydown="javascript: return event.keyCode === 8 ||
+event.keyCode === 46 ? true : !isNaN(Number(event.key))">
                         </div>
                         <div class="send-button-container input-button-container clearfix">
                             <button class="button--blue footer-image__send-button" type="submit">ENQUIRE NOW!</button>
@@ -254,7 +256,8 @@
                             value=""></div>
                     <div class="widget widget-container clearfix">
                         <input class="modal__input modal__input--phone" type="number" placeholder="Phone Number"
-                            name="phone" value=""></div>
+                            name="phone" value="" onkeydown="javascript: return event.keyCode === 8 ||
+event.keyCode === 46 ? true : !isNaN(Number(event.key))"></div>
                     <div class="widget widget-container input-button-container clearfix">
                         <button class="button--blue modal__button" type="submit">Send</button>
                     </div>
@@ -285,7 +288,8 @@
                                 name="name" value=""></div>
                         <div class="widget widget-container clearfix">
                             <input class="popunder__input popunder__input--phone" type="number" placeholder="Phone Number"
-                                name="phone" value=""></div>
+                                name="phone" value="" onkeydown="javascript: return event.keyCode === 8 ||
+event.keyCode === 46 ? true : !isNaN(Number(event.key))"></div>
                         <div class="widget widget-container input-button-container clearfix">
                             <button class="popunder__button" type="submit">Send !</button>
                         </div>
@@ -325,7 +329,15 @@
                     'alert-danger');
                 messageDiv.style.display = 'block';
                 messageDiv.classList.add('alert-success');
-                messageDiv.innerHTML = 'You\'ve contacted us successfully. We\'ll get back to you!'
+                messageDiv.innerHTML = 'You\'ve contacted us successfully. We\'ll get back to you!';
+                const allInputs = document.querySelectorAll('input');
+
+                console.log('all', allInputs);
+
+                Array.from(allInputs).forEach((input) => {
+                    console.log();
+                    input.value = '';
+                });
             });
         };
 
